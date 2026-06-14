@@ -10,18 +10,25 @@ features:
   - TypeofContact
   - Occupation
   - Gender
+  - ProductPitched
   - MaritalStatus
   - Designation
   drop_columns:
   - CustomerID
   numerical:
+  - Unnamed: 0
   - Age
+  - CityTier
   - DurationOfPitch
-  - MonthlyIncome
-  - NumberOfTrips
   - NumberOfPersonVisiting
   - NumberOfFollowups
+  - PreferredPropertyStar
+  - NumberOfTrips
+  - Passport
+  - PitchSatisfactionScore
+  - OwnCar
   - NumberOfChildrenVisiting
+  - MonthlyIncome
 huggingface:
   dataset_repo: tourism-package-dataset
   model_repo: tourism-package-xgb-model
