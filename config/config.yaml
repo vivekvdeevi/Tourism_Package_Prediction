@@ -1,0 +1,29 @@
+data:
+  random_state: 42
+  raw_local_path: data/tourism.csv
+  target_column: ProdTaken
+  test_local_path: data/test.csv
+  test_size: 0.2
+  train_local_path: data/train.csv
+features:
+  categorical:
+  - TypeofContact
+  - Occupation
+  - Gender
+  - MaritalStatus
+  - Designation
+  drop_columns:
+  - CustomerID
+  numerical:
+  - Age
+  - DurationOfPitch
+  - MonthlyIncome
+  - NumberOfTrips
+  - NumberOfPersonVisiting
+  - NumberOfFollowups
+  - NumberOfChildrenVisiting
+huggingface:
+  dataset_repo: tourism-package-dataset
+  model_repo: tourism-package-xgb-model
+  space_repo: tourism-package-predictor
+  username: vivekvdeevi
