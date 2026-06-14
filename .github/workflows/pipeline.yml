@@ -1,0 +1,45 @@
+name: MLOps End-to-End Automation Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  run-mlops-lifecycle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Checkout GitHub Repository Code
+        uses: actions/checkout@v4
+
+      - name: 2. Initialize Python Runtime Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: 3. Install Core System Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 4. Execute Hugging Face Raw Data Registration
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python src/data_registration.py
+
+      - name: 5. Execute Data Preparation & Split Syncing
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python src/data_preparation.py
+
+      - name: 6. Execute Model Building, Parameter Tuning & Registry Tracking
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python src/model_pipeline.py
+
+      - name: 7. Trigger Containerized Hugging Face Spaces Application Deployment
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python deployment/deploy_to_hf.py
