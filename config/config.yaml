@@ -7,28 +7,28 @@ data:
   train_local_path: data/train.csv
 features:
   categorical:
-  - TypeofContact
-  - Occupation
-  - Gender
-  - ProductPitched
-  - MaritalStatus
-  - Designation
+    - TypeofContact
+    - Occupation
+    - Gender
+    - ProductPitched
+    - MaritalStatus
+    - Designation
   drop_columns:
-  - CustomerID
+    - CustomerID
   numerical:
-  - Unnamed: 0
-  - Age
-  - CityTier
-  - DurationOfPitch
-  - NumberOfPersonVisiting
-  - NumberOfFollowups
-  - PreferredPropertyStar
-  - NumberOfTrips
-  - Passport
-  - PitchSatisfactionScore
-  - OwnCar
-  - NumberOfChildrenVisiting
-  - MonthlyIncome
+    - Unnamed: 0
+    - Age
+    - CityTier
+    - DurationOfPitch
+    - NumberOfPersonVisiting
+    - NumberOfFollowups
+    - PreferredPropertyStar
+    - NumberOfTrips
+    - Passport
+    - PitchSatisfactionScore
+    - OwnCar
+    - NumberOfChildrenVisiting
+    - MonthlyIncome
 huggingface:
   dataset_repo: tourism-package-dataset
   model_repo: tourism-package-xgb-model
